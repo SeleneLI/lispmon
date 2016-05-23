@@ -2,7 +2,8 @@ __author__ = 'yueli'
 
 from config.config import *
 
-target_url = 'http://lispmon.net/mappings/EID4_mappings_20120920.txt'
+target_url = 'http://lispmon.net/mappings/EID4_mappings_20130609.txt'
+print target_url
 response = urllib2.urlopen(target_url)
 html = response.read()
 # print html
