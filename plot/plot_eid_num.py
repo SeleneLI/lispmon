@@ -14,15 +14,15 @@ except:
 
 # Read the eid_num_list from eid_number.csv
 eid_num_list = []
-with open(os.path.join(LISPMON_TRACES, 'eid_number.csv')) as f_handler:
+with open(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_number.csv')) as f_handler:
     next(f_handler)
     for line in f_handler:
         lines = line.split(";")
         eid_num_list.append(lines[1])
 
 x = range(0, len(eid_num_list))
-print len(x)
-print len(eid_num_list)
+print "Length of X-axis:", len(x)
+print "Length of Y-axis:", len(eid_num_list)
 
 
 mpl.rcParams['text.usetex'] = True

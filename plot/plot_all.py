@@ -15,7 +15,7 @@ except:
 
 # Read the eid_num_list from eid_number.csv
 eid_num_list = []
-with open(os.path.join(LISPMON_TRACES, 'eid_number.csv')) as f_handler:
+with open(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_number.csv')) as f_handler:
     next(f_handler)
     for line in f_handler:
         lines = line.split(";")
@@ -23,7 +23,7 @@ with open(os.path.join(LISPMON_TRACES, 'eid_number.csv')) as f_handler:
 
 # Read the eid_num_list from eid_prefix_number.csv
 eid_prefix_num_list = []
-with open(os.path.join(LISPMON_TRACES, 'eid_prefix_number.csv')) as f_handler:
+with open(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_prefix_number.csv')) as f_handler:
     next(f_handler)
     for line in f_handler:
         lines = line.split(";")
@@ -31,15 +31,17 @@ with open(os.path.join(LISPMON_TRACES, 'eid_prefix_number.csv')) as f_handler:
 
 # Read the eid_num_list from locator_number.csv
 rloc_num_list = []
-with open(os.path.join(LISPMON_TRACES, 'locator_number.csv')) as f_handler:
+with open(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'locator_number.csv')) as f_handler:
     next(f_handler)
     for line in f_handler:
         lines = line.split(";")
         rloc_num_list.append(lines[1])
 
 x = range(0, len(eid_num_list))
-print len(x)
-print len(eid_num_list)
+print "Length of X-axis:", len(x)
+print "Length of Y-axis:", len(eid_num_list)
+print "Length of Y-axis:", len(eid_prefix_num_list)
+print "Length of Y-axis:", len(rloc_num_list)
 
 
 mpl.rcParams['text.usetex'] = True
