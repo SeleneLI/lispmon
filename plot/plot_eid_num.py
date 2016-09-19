@@ -28,7 +28,7 @@ print "Length of Y-axis:", len(eid_num_list)
 mpl.rcParams['text.usetex'] = True
 mpl.rcParams.update({'figure.autolayout': True})
 plt.plot(x, eid_num_list)
-plt.xlabel(r"\textrm{2012/01/07--2016/05/15}", font)
+plt.xlabel(r"\textrm{2012/01/07--2016/09/19}", font)
 plt.ylabel(r"\textrm{EID number}", font)
 plt.xlim(min(x),max(x))
 plt.xticks(fontsize=30, fontname="Times New Roman")
