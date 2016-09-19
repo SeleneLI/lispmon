@@ -1,6 +1,10 @@
 __author__ = 'yueli'
 
 from config.config import *
+import datetime
+
+# To get current date
+now = datetime.datetime.now()
 
 target_url = 'http://lispmon.net/mappings/EID4_mappings_20130609.txt'
 print target_url
@@ -10,13 +14,13 @@ html = response.read()
 
 # Open a file to store the eid number
 try:
-    os.stat(LISPMON_TRACES)
+    os.stat(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day)))
 except:
-    os.makedirs(LISPMON_TRACES)
+    os.makedirs(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day)))
 
-print os.path.join(LISPMON_TRACES, 'eid_prefix_number.csv')
+print os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_prefix_number.csv')
 
-with open(os.path.join(LISPMON_TRACES, 'eid_prefix_number_sinal.csv'), 'wb') as eid_num_file:
+with open(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_prefix_number_sinal.csv'), 'wb') as eid_num_file:
     spamwriter = csv.writer(eid_num_file, dialect='excel', delimiter=';')
     spamwriter.writerow(['Date', 'EID number', 'EID prefix'])
 

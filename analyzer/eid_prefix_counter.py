@@ -3,6 +3,10 @@ __author__ = 'yueli'
 
 
 from config.config import *
+import datetime
+
+# To get current date
+now = datetime.datetime.now()
 
 # Build the 'year', 'month' and 'day'
 year_list = [str(year) for year in range(2010, 2017)]
@@ -13,13 +17,13 @@ day_list = []
 for day in range(1, 32):
     day_list.append(str('%02d'%day))
 
-# Open a file to store the eid prefix number
+# Open a file to store the eid number
 try:
-    os.stat(LISPMON_TRACES)
+    os.stat(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day)))
 except:
-    os.makedirs(LISPMON_TRACES)
+    os.makedirs(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day)))
 
-print os.path.join(LISPMON_TRACES, 'eid_prefix_number.csv')
+print os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_prefix_number.csv')
 
 
 eid_prefix_num_list = []
