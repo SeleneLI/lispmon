@@ -27,7 +27,7 @@ print os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now
 
 
 eid_prefix_num_list = []
-with open(os.path.join(LISPMON_TRACES, 'eid_prefix_number.csv'), 'wb') as eid_num_file:
+with open(os.path.join(LISPMON_TRACES, "{0}_{1}_{2}".format(now.year, now.month, now.day), 'eid_prefix_number.csv'), 'wb') as eid_num_file:
     spamwriter = csv.writer(eid_num_file, dialect='excel', delimiter=';')
     # Write the first line, i.e., title
     spamwriter.writerow(['Date', 'EID-prefix number', 'EID-prefixes'])
